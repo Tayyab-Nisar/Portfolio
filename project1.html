@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Java App Deployment</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+</head>
+<body>
+<img src="/images/java.jpg" height="300" length="300" width="800" alt="Java app deploymet using CICD"/>
+<h4><strong>1. Project Initialization</strong></h4>
+<ol>
+    <li><strong>Define Objectives</strong>: Outline the goals for deploying the Java application (e.g., improve deployment speed, ensure scalability).</li>
+    <li><strong>Stakeholder Identification</strong>: Identify all key stakeholders and their needs.</li>
+    <li><strong>Scope and Plan</strong>: Define the project scope, timelines, and deliverables.</li>
+</ol>
+<h4><strong>2. Set Up Version Control</strong></h4>
+<ol>
+    <li><strong>Create Repository</strong>: Set up a Git repository on GitHub, GitLab, or Bitbucket.</li>
+    <li><strong>Branching Strategy</strong>: Define a branching strategy, such as Git Flow.</li>
+</ol>
+<h4><strong>3. Continuous Integration (CI) Setup</strong></h4>
+<ol>
+    <li><strong>CI Tool Configuration</strong>: Set up Jenkins, GitLab CI, or CircleCI.</li>
+    <li><strong>Automate Builds</strong>: Configure the CI tool to trigger builds on code commits.</li>
+    <li><strong>Testing Integration</strong>: Integrate unit and integration tests into the CI pipeline.</li>
+</ol>
+<h4><strong>4. Provision EC2 Instance</strong></h4>
+<ol>
+    <li><strong>Launch EC2 Instance</strong>:<ul>
+        <li>Log in to AWS Console.</li>
+        <li>Launch a new EC2 instance using an appropriate AMI (e.g., Amazon Linux 2 or Ubuntu).</li>
+        <li>Configure instance details, storage, and security group.</li>
+    </ul>
+    </li>
+    <li><strong>Access Key Pair</strong>: Create or use an existing key pair for SSH access.</li>
+    <li><strong>Instance Security Group</strong>:<ul>
+        <li>Allow inbound traffic on necessary ports (e.g., SSH on port 22, HTTP/HTTPS on ports 80/443).</li>
+    </ul>
+    </li>
+</ol>
+<h4><strong>5. Connect to EC2 Instance</strong></h4>
+<ol>
+    <li><strong>SSH into Instance</strong>:<ul>
+        <li>Use SSH client with the key pair to connect to the instance.</li>
+    </ul>
+    </li>
+</ol>
+<h4><strong>6. Install Dependencies</strong></h4>
+<ol>
+    <li><strong>Update Packages</strong>:<ul>
+        <li>For Amazon Linux: Use <code>yum update</code>.</li>
+        <li>For Ubuntu: Use <code>apt-get update</code>.</li>
+    </ul>
+    </li>
+    <li><strong>Install Java</strong>:<ul>
+        <li>For Amazon Linux: Install Java using <code>yum</code>.</li>
+        <li>For Ubuntu: Install Java using <code>apt-get</code>.</li>
+    </ul>
+    </li>
+    <li><strong>Verify Java Installation</strong>: Check the Java version to ensure it&apos;s installed correctly.</li>
+</ol>
+<h4><strong>7. Deploy Java Application</strong></h4>
+<ol>
+    <li><strong>Transfer Application</strong>:<ul>
+        <li>Use <code>scp</code> to copy the JAR/WAR file to the EC2 instance.</li>
+    </ul>
+    </li>
+    <li><strong>Run Application</strong>:<ul>
+        <li>SSH into the instance and navigate to the directory containing the application.</li>
+        <li>Run the application using <code>java -jar</code> command.</li>
+        <li>To run in the background, use <code>nohup</code>.</li>
+    </ul>
+    </li>
+</ol>
+<h4><strong>8. Configure Security Group for Application Access</strong></h4>
+<ol>
+    <li><strong>Update Security Group</strong>:<ul>
+        <li>Allow inbound traffic on the port your application uses (e.g., 8080).</li>
+    </ul>
+    </li>
+</ol>
+<h4><strong>9. Access Application</strong></h4>
+<ol>
+    <li><strong>Open Browser</strong>:<ul>
+        <li>Navigate to <code>http://your-ec2-public-ip:port</code> to access your Java application.</li>
+    </ul>
+    </li>
+</ol>
+<h4><strong>10. Continuous Deployment (CD) Setup</strong></h4>
+<ol>
+    <li><strong>CD Pipeline</strong>:<ul>
+        <li>Extend the CI configuration to include deployment steps using Jenkins, GitLab CI, or similar tools.</li>
+        <li>Automate the deployment process to push updates to the EC2 instance upon successful builds.</li>
+    </ul>
+    </li>
+</ol>
+<h4><strong>11. Monitoring and Logging</strong></h4>
+<ol>
+    <li><strong>Set Up Monitoring</strong>:<ul>
+        <li>Use tools like Prometheus and Grafana to monitor application and instance performance.</li>
+    </ul>
+    </li>
+</ol>
+</div>
+</body>
